@@ -6,9 +6,13 @@
 // excelのファイル名と，モジュールの吸出し先パスを指定
 var file_dir = "C:\\Users\\fumio\\MyProject\\excel_vba\\loadableModules";
 var file_name = "template.xls";
-var file_path = file_dir + "\\" + file_name;
-var vacuum_dir = file_dir + "\\macros";
 
+// カレントディレクトリ取得
+var objWshShell = new ActiveXObject("WScript.Shell");
+var currentDir = objWshShell.CurrentDirectory;
+currentDir = currentDir.replace(/\\/g,'\\\\');
+var file_path = currentDir + "\\" + file_name;
+var vacuum_dir = currentDir + "\\src\\vacuum";
 
 // ブックを開く
 var excel = WScript.CreateObject("Excel.Application");

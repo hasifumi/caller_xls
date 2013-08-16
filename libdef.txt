@@ -1,2 +1,2 @@
-.\HogeModule.bas
-.\FugaModule.bas
+.\src\HogeModule.bas
+.\src\FugaModule.bas
