@@ -17,22 +17,24 @@ Private module_path As String
 Private Sub Workbook_Open()
     
     ' txtに書いてある外部ライブラリを読み込み
-    load_from_conf ".\libdef.txt"
+    load_from_conf ".\libdef.txt", False
        
 End Sub
 
 ' 設定ファイルに書いてある外部ライブラリを読み込みます。
-Sub load_from_conf(conf_path As String)
-    
-    ' 全モジュールを削除
-    clear_modules
+Sub load_from_conf(conf_path As String, flgMsg As Boolean)
     
     ' 絶対パスに変換
     conf_path = abs_path(conf_path)
     If Dir(conf_path) = "" Then
-        MsgBox "外部ライブラリ定義" & conf_path & "が存在しません。"
+        If flgMsg = True Then
+            MsgBox "外部ライブラリ定義" & conf_path & "が存在しません。"
+        End If
         Exit Sub
     End If
+    
+    ' 全モジュールを削除
+    clear_modules
     
     ' 読み取り
     fp = FreeFile

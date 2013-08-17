@@ -9,3 +9,11 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = True
 Option Explicit
 
+Private Sub btnAddinsStatus_Click()
+  Call Test
+End Sub
+
+Private Sub Worksheet_Activate()
+  btnAddinsStatus.Accelerator = "a"
+End Sub
+

@@ -5,5 +5,4 @@ Attribute VB_Name = "FugaModule"
 Sub fuga()
     MsgBox "fuga"
     MsgBox "fugafuga"
-    MsgBox "fugafugafuga"
 End Sub
